@@ -1,0 +1,6 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = { "fragment":"uniform texture displacement_map;\nuniform float amplitudo = 0.015;\nuniform float speed = 2.0;\nuniform vec2 scaling = vec2(1,1);\n\nvec2 uv = UV*scaling;\n\nvec2 displacement = tex(displacement_map, uv/6.0).xy;\nfloat t = uv.y + displacement.y * 0.1 - 0.15 + (sin (uv.x * 60.0+TIME*speed) * amplitudo);\n \nCOLOR = tex(TEXTURE, vec2(uv.x, t)).rgba;", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
